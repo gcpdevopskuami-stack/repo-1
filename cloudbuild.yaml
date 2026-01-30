@@ -1,6 +1,13 @@
 steps:
-  - name: 'python'
-    args: ['python3', 'hello.py']
+ - name: "gcr.io/cloud-builders/docker"  
+   id: "build"
+   args: ['build', '-t', '${_IMAGE_PATH}', '.' ]
+
+substitutions:
+  _LOCATION: us-central1-docker.pkg.dev
+  _IMAGE: my-repository/hello-image
+  _IMAGE_PATH: ${_LOCATION}/${PROJECT_ID}/${_IMAGE}:$COMMIT_SHA  
+  _DEPLOY_REGION: us-central1
 
 options:
   logging: CLOUD_LOGGING_ONLY
