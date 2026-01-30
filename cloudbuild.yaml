@@ -6,7 +6,7 @@ steps:
 substitutions:
   _LOCATION: us-central1-docker.pkg.dev
   _IMAGE: my-repository/hello-image
-  _IMAGE_PATH: ${_LOCATION}/${PROJECT_ID}/${_IMAGE}:$COMMIT_SHA  
+  _IMAGE_PATH: ${_LOCATION}/${PROJECT_ID}/${_IMAGE}:v1.0  
   _DEPLOY_REGION: us-central1
 
 options:
